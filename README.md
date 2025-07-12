@@ -10,6 +10,7 @@ A clean, static math dictionary website built with **SvelteKit**, **TypeScript**
 - Interactive search/filter of terms (client-side)
 - Beautiful, responsive UI with Skeleton UI components
 - Static site with no backend (for now)
+- May scale later (multiple subjects with dynamic api to fetch subjects)
 
 ---
 
