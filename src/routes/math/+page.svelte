@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { terms } from '../data/terms.js';
-	import TermCard from '../lib/components/TermCard.svelte';
-	import type { Term } from '../lib/types.js';
+	import { terms } from '../../data/terms.js';
+	import TermCard from '../../lib/components/TermCard.svelte';
+	import type { Term } from '../../lib/types.js';
 
 	let searchTerm = '';
 	let selectedSubject = '';
