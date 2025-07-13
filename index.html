@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+      <script>
+        // Auto-redirect after 3 seconds, or immediately if running locally
+        setTimeout(() => {
+            redirect();
+        }, 3000);
+        
+        // Immediate redirect if user clicks
+        function redirect() {
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                // Check if dev server is running on port 5173
+                fetch('http://localhost:5173')
+                    .then(() => {
+                        window.location.href = 'http://localhost:5173';
+                    })
+                    .catch(() => {
+                        // If dev server isn't running, try the build
+                        window.location.href = './build/index.html';
+                    });
+            } else {
+                // For GitHub Pages, redirect to the built app
+                window.location.href = './build/index.html';
+            }
+        }
+    </script>-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Math Dictionary - Redirecting...</title>
     <style>
