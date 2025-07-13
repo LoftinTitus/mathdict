@@ -19,7 +19,8 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: dev ? '' : '/mathdict'
+			base: dev ? '' : '/mathdict',
+			relative: false
 		},
 		prerender: {
 			entries: ['*'] // This will prerender all discoverable routes
