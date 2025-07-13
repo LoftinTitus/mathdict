@@ -40,11 +40,8 @@ jobs:
       - name: Add .nojekyll file
         run: touch ./build/.nojekyll
         
-      - name: Prepare for GitHub Pages deployment
-        run: |
-          # The build directory already contains everything we need
-          # GitHub Pages will serve build/index.html as the root index.html
-          echo "Build directory ready for deployment"
+      - name: Add 404.html for SPA routing
+        run: cp ./build/index.html ./build/404.html
         
       - name: Setup Pages
         uses: actions/configure-pages@v4

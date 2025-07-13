@@ -20,16 +20,7 @@ const config = {
 			base: process.env.NODE_ENV === 'production' ? '/mathdict' : ''
 		},
 		prerender: {
-			entries: [
-				'/',
-				'/math',
-				'/calculus',
-				'/algebra', 
-				'/geometry',
-				'/trigonometry',
-				'/statistics',
-				'/linear algebra'
-			]
+			entries: ['*'] // This will prerender all discoverable routes
 		}
 	}
 };
