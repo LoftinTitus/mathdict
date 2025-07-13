@@ -37,11 +37,19 @@ jobs:
         env:
           NODE_ENV: production
           
-      - name: Add .nojekyll file
-        run: touch ./build/.nojekyll
-        
-      - name: Add 404.html for SPA routing
-        run: cp ./build/index.html ./build/404.html
+      - name: Create deployment directory
+        run: |
+          # Create a clean directory for GitHub Pages
+          rm -rf deploy
+          mkdir deploy
+          # Copy all build files to deploy directory
+          cp -r ./build/* ./deploy/
+          # Add .nojekyll to deploy directory  
+          touch ./deploy/.nojekyll
+          # Add 404.html for SPA routing
+          cp ./deploy/index.html ./deploy/404.html
+          # Ensure index.html is at the root level
+          ls -la ./deploy/
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -49,7 +57,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './build'
+          path: './deploy'
           
       - name: Deploy to GitHub Pages
         id: deployment
