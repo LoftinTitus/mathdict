@@ -1,26 +1,233 @@
 /* Import KaTeX CSS for math rendering */
 @import url('https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css');
 
-/* Import Skeleton UI styles and theme */
-@import '@skeletonlabs/skeleton';
-@import '@skeletonlabs/skeleton/themes/modern';
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Import Tailwind CSS */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;
+  color: #374151;
+  background-color: #f9fafb;
+}
 
-/* Custom styles for your math dictionary */
-.math-formula {
-  @apply bg-surface-200-700-token p-4 rounded-lg border border-surface-300-600-token;
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Navigation */
+nav {
+  background-color: #2563eb;
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+nav h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.375rem;
+  transition: background-color 0.2s;
+}
+
+nav a:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+/* Layout utilities */
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.space-x-4 > * + * {
+  margin-left: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+.space-y-12 > * + * {
+  margin-top: 3rem;
+}
+
+/* Main content */
+main {
+  padding: 2rem 0;
+  min-height: calc(100vh - 80px);
+}
+
+/* Typography */
+h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+/* Cards */
+.card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .term-card {
-  @apply card p-6 space-y-4;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s;
+}
+
+.term-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .subject-card {
-  @apply card p-6 hover:variant-soft-primary cursor-pointer transition-all duration-200;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.subject-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+  background-color: #f0f9ff;
+}
+
+/* Grid layouts */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .md\\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .md\\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .md\\:text-6xl {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1d4ed8;
+}
+
+.btn-secondary {
+  background-color: #f3f4f6;
+  color: #374151;
+}
+
+.btn-secondary:hover {
+  background-color: #e5e7eb;
+}
+
+/* Text utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-4xl {
+  font-size: 2.25rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-semibold {
+  font-weight: 600;
 }
 
 /* Math formula styling */
@@ -29,23 +236,84 @@
 }
 
 .formula-box {
-  @apply bg-surface-100-800-token p-3 rounded border border-surface-300-600-token font-mono text-sm;
+  background-color: #f9fafb;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid #e5e7eb;
+  font-family: 'Courier New', monospace;
+  font-size: 0.875rem;
 }
 
-/* Custom scrollbar styling */
-::-webkit-scrollbar {
-  width: 8px;
+.math-formula {
+  background-color: #f0f9ff;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #bfdbfe;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
+/* Colors */
+.text-gray-500 { color: #6b7280; }
+.text-gray-600 { color: #4b5563; }
+.text-gray-700 { color: #374151; }
+.text-gray-900 { color: #111827; }
+.text-blue-600 { color: #2563eb; }
+
+.bg-blue-600 { background-color: #2563eb; }
+.bg-white { background-color: white; }
+
+/* Spacing */
+.max-w-2xl {
+  max-width: 42rem;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #c1c1c1;
-  border-radius: 4px;
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #a1a1a1;
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.gap-4 > * + * {
+  margin-left: 1rem;
+}
+
+.gap-6 {
+  gap: 1.5rem;
+}
+
+.gap-8 {
+  gap: 2rem;
+}
+
+/* Responsive flex */
+@media (min-width: 640px) {
+  .sm\\:flex-row {
+    flex-direction: row;
+  }
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
