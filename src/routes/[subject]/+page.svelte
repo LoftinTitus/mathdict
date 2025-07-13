@@ -3,6 +3,7 @@
 	import { terms } from '../../data/terms.js';
 	import TermCard from '../../lib/components/TermCard.svelte';
 	import type { Term } from '../../lib/types.js';
+	import { base } from '$app/paths';
 
 	$: subject = $page.params.subject;
 	$: subjectTerms = terms.filter((term: Term) => 
@@ -18,8 +19,8 @@
 <div class="space-y-6">
 	<div>
 		<nav class="text-sm text-gray-500 mb-4">
-			<a href="/" class="hover:text-blue-600">Home</a> › 
-			<a href="/math" class="hover:text-blue-600">Math Terms</a> › 
+			<a href="{base}/" class="hover:text-blue-600">Home</a> › 
+			<a href="{base}/math" class="hover:text-blue-600">Math Terms</a> › 
 			<span class="text-gray-900">{subjectDisplayName}</span>
 		</nav>
 		<h1 class="text-3xl font-bold text-gray-900 mb-4">{subjectDisplayName}</h1>
@@ -41,7 +42,7 @@
 				No mathematical terms found for "{subjectDisplayName}".
 			</p>
 			<a 
-				href="/math" 
+				href="{base}/math" 
 				class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors"
 			>
 				Browse All Terms

@@ -2,6 +2,7 @@
 	import { terms } from '../data/terms.js';
 	import { getUniqueSubjects, getRandomTerms } from '../lib/utils.js';
 	import TermCard from '../lib/components/TermCard.svelte';
+	import { base } from '$app/paths';
 
 	$: subjects = getUniqueSubjects(terms);
 	$: featuredTerms = getRandomTerms(terms, 3);
@@ -24,7 +25,7 @@
 		</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">
 			<a 
-				href="/math"
+				href="{base}/math"
 				class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
 			>
 				Browse All Terms
@@ -79,7 +80,7 @@
 			{#each subjects as subject}
 				{@const subjectTerms = terms.filter(term => term.subject === subject)}
 				<a 
-					href="/{subject.toLowerCase()}"
+					href="{base}/{subject.toLowerCase()}"
 					class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-200 group"
 				>
 					<h3 class="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
