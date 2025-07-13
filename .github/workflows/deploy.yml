@@ -40,10 +40,11 @@ jobs:
       - name: Add .nojekyll file
         run: touch ./build/.nojekyll
         
-      - name: Rename SvelteKit index.html and copy redirect
+      - name: Prepare for GitHub Pages deployment
         run: |
-          mv ./build/index.html ./build/app.html
-          cp ./index.html ./build/index.html
+          # The build directory already contains everything we need
+          # GitHub Pages will serve build/index.html as the root index.html
+          echo "Build directory ready for deployment"
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
